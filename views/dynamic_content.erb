@@ -19,7 +19,7 @@
     <div id='content' class='large-10 columns large-centered'>
         <div class='row'>
           <div class='large-2 columns'>
-            <img src='/img/avatars/<%= @images[0] %>'>
+            <img src='img/avatars/<%= @images[0] %>'>
           </div>
           <div class='large-10 columns'>
           Accusantium eius ut architecto neque vel voluptatem vel nam eos minus ullam dolores voluptates enim sed voluptatem rerum qui sapiente nesciunt aspernatur et accusamus laboriosam culpa tenetur hic aut placeat error autem qui sunt.
@@ -27,7 +27,7 @@
         </div></br></br>
         <div class='row'>
           <div class='large-2 columns'>
-            <img src='/img/avatars/<%= @images[1] %>'>
+            <img src='img/avatars/<%= @images[1] %>'>
           </div>
           <div class='large-10 columns'>
           Omnis fugiat porro vero quas tempora quis eveniet ab officia cupiditate culpa repellat debitis itaque possimus odit dolorum et iste quibusdam quis dicta autem sint vel quo vel consequuntur dolorem nihil neque sunt aperiam blanditiis.
@@ -36,7 +36,7 @@
         <div class='row'>
           <div class='large-2 columns'>
             <% 2.times { @images.delete_at(0) } %>
-            <img src='/img/avatars/<%= @images[rand(@images.length-1)] %>'>
+            <img src='img/avatars/<%= @images[rand(@images.length-1)] %>'>
           </div>
           <div class='large-10 columns'>
             <%= @copy[0] %>
@@ -50,7 +50,7 @@
       <% @copy.each do |copy| %>
         <div class='row'>
           <div class='large-2 columns'>
-            <img src='/img/avatars/<%= @images[rand(@images.length-1)] %>'>
+            <img src='img/avatars/<%= @images[rand(@images.length-1)] %>'>
           </div>
           <div class='large-10 columns'>
             <%= copy %>
