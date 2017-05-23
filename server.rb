@@ -11,6 +11,8 @@ helpers Sinatra::Cookies
 set :cookie_options, :domain => nil
 enable :sessions, :logging
 
+base_url = "/the-internet"
+
 get '/' do
   erb :index
 end
@@ -211,7 +213,7 @@ get '/redirector' do
 end
 
 get '/login' do
-  erb :login
+  erb :login, locals: { base_url: base_url }
 end
 
 post "/authenticate" do
@@ -222,20 +224,20 @@ post "/authenticate" do
     if password == params[:password]
       session[:username] = params[:username]
       flash[:success] = 'You logged into a secure area!'
-      redirect '/secure'
+      redirect "#{base_url}/secure"
     else
       flash[:error] = 'Your password is invalid!'
     end
   else
     flash[:error] = 'Your username is invalid!'
   end
-  redirect '/login'
+  redirect "#{base_url}/login"
 end
 
 get '/secure' do
   unless session[:username]
     flash[:error] = 'You must login to view the secure area!'
-    redirect '/login'
+    redirect "#{base_url}/login"
   end
   erb :secure
 end
@@ -243,7 +245,7 @@ end
 get '/logout' do
   session[:username] = nil
   flash[:success] = 'You logged out of the secure area!'
-  redirect "/login"
+  redirect "#{base_url}/login"
 end
 
 get '/dynamic_controls' do
