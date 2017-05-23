@@ -239,7 +239,7 @@ get '/secure' do
     flash[:error] = 'You must login to view the secure area!'
     redirect "#{base_url}/login"
   end
-  erb :secure
+  erb :secure, locals: { base_url: base_url }
 end
 
 get '/logout' do
